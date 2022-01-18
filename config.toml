@@ -1,4 +1,5 @@
 baseURL = "/"
+relativeURLs = true
 title = "Acme Docs"
 
 enableRobotsTXT = true
