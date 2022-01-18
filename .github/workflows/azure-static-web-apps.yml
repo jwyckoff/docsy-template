@@ -22,7 +22,6 @@ jobs:
         uses: peaceiris/actions-hugo@v2.4.13
         with:
           extended: true
-     
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.5.1
       - name: Install npm pre-reqs
@@ -32,8 +31,8 @@ jobs:
           npm audit fix
           echo test, and deploy your project
       - name: Run Hugo
-        run: hugo server -s "./src" --cleanDestinationDir --baseUrl 'http://localhost'   --destination '../_public'
-      - name: Build And Deploy
+        run: hugo -s "./src" --cleanDestinationDir --baseUrl 'http://localhost'   
+      - name: Deploy to Azure Static App
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
