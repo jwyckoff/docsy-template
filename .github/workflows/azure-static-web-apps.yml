@@ -35,7 +35,7 @@ jobs:
           echo test, and deploy your project
       
       - name: Run Hugo
-        run: hugo -s "./src" --cleanDestinationDir --baseUrl 'http://localhost' --destination "./public"
+        run: hugo -s "./src" --cleanDestinationDir --baseUrl 'http://localhost' --destination "../public"
       
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.3.1
