@@ -31,7 +31,7 @@ jobs:
           npm audit fix
           echo test, and deploy your project
       - name: Run Hugo
-        run: hugo -s "./src" --cleanDestinationDir --baseUrl 'http://localhost'   
+        run: hugo -s "./src" --cleanDestinationDir --baseUrl 'http://localhost' --destination "./public"
       - name: Deploy to Azure Static App
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
