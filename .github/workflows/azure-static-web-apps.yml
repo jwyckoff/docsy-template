@@ -18,27 +18,33 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: recursive
+
       - name: Hugo setup
         uses: peaceiris/actions-hugo@v2.4.13
         with:
           extended: true
+      
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.5.1
+      
       - name: Install npm pre-reqs
         run: |
           npm install -g postcss-cli
           npm install autoprefixer
           npm audit fix
           echo test, and deploy your project
+      
       - name: Run Hugo
         run: hugo -s "./src" --cleanDestinationDir --baseUrl 'http://localhost' --destination "./public"
+      
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v2.3.1
         with:
           # Artifact name
           name: public
           # A file, directory or wildcard pattern that describes what to upload
-          path: public
+          path: "./public"
+      
       - name: Deploy to Azure Static App
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
