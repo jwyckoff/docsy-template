@@ -45,8 +45,11 @@ jobs:
           # A file, directory or wildcard pattern that describes what to upload
           path: "./public"
 
-      - run: ls -la
-      
+      - run: |
+          ls -la
+          cd src
+          ls -la
+          
       - name: Deploy to Azure Static App
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
